@@ -1,0 +1,47 @@
+{
+  "name": "valence",
+  "protocol": 1,
+  "functions": [
+    {
+      "id": "val_3dXSJ_yaS50R6mLK",
+      "source": "src/routes/index.tsx",
+      "name": "src/routes/index.tsx#App/openNote",
+      "span": {
+        "start": {
+          "line": 30,
+          "column": 2,
+          "offset": 5620
+        },
+        "end": {
+          "line": 47,
+          "column": 3,
+          "offset": 6062
+        }
+      },
+      "imports": [
+        "electron",
+        "node:fs/promises"
+      ]
+    },
+    {
+      "id": "val_BmeReQB5kBXuPxFT",
+      "source": "src/lib/system.ts",
+      "name": "src/lib/system.ts#getSystemSummary",
+      "span": {
+        "start": {
+          "line": 5,
+          "column": 7,
+          "offset": 76
+        },
+        "end": {
+          "line": 7,
+          "column": 1,
+          "offset": 190
+        }
+      },
+      "imports": [
+        "node:os"
+      ]
+    }
+  ]
+}
