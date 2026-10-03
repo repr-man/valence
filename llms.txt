@@ -1,0 +1,16 @@
+# Valence
+
+> Vite plugin that compiles async `'use main'` functions into Electron main-process calls and generates the Electron main/preload integration.
+
+Valence can scaffold a new Vite and Electron application with `valence init`; see [Initialization](docs/initialization.md) for published-package and local repository workflows. It can also be integrated into an existing Vite and Electron application. Use `valence/vite` in the Vite configuration and call marked functions with normal `await`. Do not manually wire IPC, preload, bridge, or a function registry.
+
+## Documentation
+
+- [Agent guidance](AGENTS.md): installed-package instructions for coding agents.
+- [Agent guide](docs/agents.md): recipes, compiler constraints, option defaults, authorization, packaging, troubleshooting.
+- [Public API](docs/api.md): supported package entry points and their roles.
+- [Getting started](docs/getting-started.md): install and configure an existing Vite app.
+- [Initialization](docs/initialization.md): create a new app with the Valence CLI.
+- [Compiler model](docs/compiler.md): supported syntax and transport boundary.
+- [Security](docs/security.md): sender checks, authorization, and privileged function design.
+- [Packaging](docs/packaging.md): generated files and Electron packager configuration.

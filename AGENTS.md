@@ -1,0 +1,7 @@
+# Guidance for coding agents
+
+This is an installed Valence package consumer guide. Integrate through `valence/vite` in the application's existing Vite config. Mark privileged async functions with `'use main'`; callers use ordinary `await`. Valence generates the Electron main entry, preload, registry, and bridge.
+
+Do not manually wire preload, `ipcMain`, `ipcRenderer`, `contextBridge`, or a registry. Do not import generated virtual modules. Application runtime code uses `valence/runtime/context` for `getMainContext()` inside an active main function; a type-only `AuthorizationContext` import from `valence/runtime/main` is also supported for policy signatures. Use `app.lifecycleModule` with `defineElectronApp` from `valence/electron` for startup, cleanup, and stateful authorization.
+
+Read [the agent guide](docs/agents.md) for decision recipes, compiler constraints, complete plugin options, output paths, packaging, and troubleshooting. For a new app, see [Initialization](docs/initialization.md); for an existing app, see [Getting started](docs/getting-started.md). Also see [Compiler model](docs/compiler.md), [Security](docs/security.md), and [Packaging](docs/packaging.md). These instructions ship with the `valence` package. To locate them from a Node project, resolve `import.meta.resolve('valence/package.json')` and use the package directory; `AGENTS.md`, `llms.txt`, and `docs/` are included alongside it.

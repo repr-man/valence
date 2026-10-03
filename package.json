@@ -1,0 +1,99 @@
+{
+  "name": "valence",
+  "version": "0.1.0",
+  "description": "Inline Electron main functions for ordinary Vite applications",
+  "type": "module",
+  "main": "./dist/vite.js",
+  "types": "./dist/vite.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/vite.d.ts",
+      "import": "./dist/vite.js"
+    },
+    "./vite": {
+      "types": "./dist/vite.d.ts",
+      "import": "./dist/vite.js"
+    },
+    "./compiler": {
+      "types": "./dist/compiler.d.ts",
+      "import": "./dist/compiler.js"
+    },
+    "./electron": {
+      "types": "./dist/electron.d.ts",
+      "import": "./dist/electron.js"
+    },
+    "./runtime/renderer": {
+      "types": "./dist/runtime/renderer.d.ts",
+      "import": "./dist/runtime/renderer.js"
+    },
+    "./runtime/preload": {
+      "types": "./dist/runtime/preload.d.ts",
+      "import": "./dist/runtime/preload.js"
+    },
+    "./runtime/main": {
+      "types": "./dist/runtime/main.d.ts",
+      "import": "./dist/runtime/main.js"
+    },
+    "./runtime/context": {
+      "types": "./dist/runtime/context.d.ts",
+      "import": "./dist/runtime/context.js"
+    },
+    "./runtime/protocol": {
+      "types": "./dist/runtime/protocol.d.ts",
+      "import": "./dist/runtime/protocol.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "AGENTS.md",
+    "llms.txt",
+    "docs",
+    "templates"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "dev": "vite --config examples/solid/vite.config.ts",
+    "example:build": "vite build --config examples/solid/vite.config.ts",
+    "typecheck:examples": "tsc -p examples/solid",
+    "dev:solid": "vite --config examples/solid/vite.config.ts",
+    "example:build:solid": "vite build --config examples/solid/vite.config.ts",
+    "setup:electron": "install-electron"
+  },
+  "engines": {
+    "node": ">=22.12"
+  },
+  "packageManager": "pnpm@12.8.1",
+  "peerDependencies": {
+    "electron": ">=35",
+    "vite": "^8.0.0"
+  },
+  "dependencies": {
+    "@babel/generator": "^7.28.5",
+    "@babel/parser": "^7.28.5",
+    "@babel/traverse": "^7.28.5",
+    "@babel/types": "^7.28.5",
+    "semver": "^7.8.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.28.5",
+    "@solidjs/router": "^0.15.0",
+    "@tailwindcss/vite": "^4.1.0",
+    "@types/babel__generator": "^7.27.0",
+    "@types/babel__traverse": "^7.28.0",
+    "@types/node": "^24.0.0",
+    "@types/semver": "^7.8.0",
+    "electron": "^44.5.1",
+    "solid-js": "^1.9.0",
+    "tailwindcss": "^4.1.0",
+    "tsup": "^8.5.0",
+    "typescript": "^6.0.0",
+    "vite": "^8.3.2",
+    "vite-plugin-solid": "^2.11.0"
+  },
+  "bin": {
+    "valence": "./dist/cli.js"
+  }
+}
