@@ -6,13 +6,18 @@ Valence lets a Vite application call Electron main-process functions from the so
 import { readFile } from 'node:fs/promises';
 import { createMemo } from 'solid-js';
 
+// Runs in the `main` process.
 export async function readTextFile(path: string) {
   'use main';
   return readFile(path, 'utf8');
 }
 
+// Runs in the `renderer` process
 export function MyComponent() {
   const text = createMemo(() => readTextFile("~/.bashrc"));
+  //                            ^~~~~~~~~~~~~~~~~~~~~~~~~
+  // Calls the function in the `main` process. No manual IPC wiring!
+
   return <Loading fallback={<LoadingSkeleton />}>
     <code>{text()}</code>
   </Loading>
