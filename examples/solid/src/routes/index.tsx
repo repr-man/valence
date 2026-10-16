@@ -1,5 +1,4 @@
 import { createSignal, Show } from 'solid-js';
-import { A } from '@solidjs/router';
 import { dialog } from 'electron';
 import { readFile } from 'node:fs/promises';
 import { getSystemSummary } from '../lib/system';
@@ -44,11 +43,11 @@ export default function App() {
     <main class="min-h-screen bg-[#f5f5f8] text-[#211f30]">
       <div class="mx-auto flex min-h-screen max-w-6xl flex-col px-6 py-7 sm:px-10">
         <header class="flex items-center justify-between border-b border-[#e1deea] pb-5">
-          <A class="flex items-center gap-3" href="/" aria-label="Valence home">
+          <a class="flex items-center gap-3" href="#/" aria-label="Valence home">
             <span class="grid size-9 place-items-center rounded-xl bg-[#554281] text-lg text-white">v</span>
             <span class="font-semibold tracking-tight">valence<span class="text-[#9c90bb]">/</span>solid</span>
-          </A>
-          <div class="flex items-center gap-4"><A href="/guide" class="text-xs font-medium text-[#66558c] hover:underline">How it works</A><span class="rounded-full border border-[#ddd8ea] bg-white px-3 py-1.5 text-xs font-medium text-[#66558c]">Electron + Vite</span></div>
+          </a>
+          <div class="flex items-center gap-4"><a href="#/guide" class="text-xs font-medium text-[#66558c] hover:underline">How it works</a><span class="rounded-full border border-[#ddd8ea] bg-white px-3 py-1.5 text-xs font-medium text-[#66558c]">Electron + Vite</span></div>
         </header>
 
         <section class="grid flex-1 items-center gap-12 py-14 lg:grid-cols-[1fr_1fr] lg:py-20">

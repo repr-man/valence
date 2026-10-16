@@ -1,6 +1,6 @@
 # Solid example application
 
-This repository example is a complete Vite app that demonstrates Valence from a frontend source tree. It uses Solid Router to discover route components from `src/routes`, and shows function-level and module-level `'use main'` declarations. It also handles browser-only mode with a message explaining that Electron is needed for main-process calls.
+This repository example is a complete Solid 2 Vite app that demonstrates Valence from a frontend source tree. It discovers route components from `src/routes` and mounts them with Solid Router 2's `createRouter` and `hashHistory`, using plain anchors for navigation. It shows function-level and module-level `'use main'` declarations, and handles browser-only mode with a message explaining that Electron is needed for main-process calls.
 
 From the repository root, build Valence and start the app:
 

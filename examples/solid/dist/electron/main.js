@@ -90,9 +90,6 @@ function cloneValue(value, label, path, development) {
 		throw new ValenceError(`${label} contains a value that cannot cross Electron IPC at ${failurePath}.`, "VALENCE_SERIALIZATION", { cause });
 	}
 }
-//#endregion
-//#region dist/chunk-LKPOUUD5.js
-var invocationStorage = new AsyncLocalStorage();
 var INVOKE_CHANNEL = "__valence_invoke__";
 function isRecord(value) {
 	return value !== null && typeof value === "object" && !Array.isArray(value);
@@ -109,6 +106,9 @@ function isInvokeRequest(value) {
 		"args"
 	].every((key) => Object.prototype.hasOwnProperty.call(value, key)) && value.protocol === 1 && isIdentifier(value.id) && isIdentifier(value.callId) && Array.isArray(value.args);
 }
+//#endregion
+//#region dist/chunk-LKPOUUD5.js
+var invocationStorage = new AsyncLocalStorage();
 //#endregion
 //#region dist/runtime/main.js
 var registry = /* @__PURE__ */ new Map();

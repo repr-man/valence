@@ -2,7 +2,7 @@
 
 Use the installed Valence package as the integration layer between ordinary Vite modules and Electron main. Start from the application's existing Vite config and add `valence()` alongside its current frontend plugins. Mark only privileged async functions with `'use main'`, then call them with normal `await`. Valence compiles their main implementations and generates the Electron main entry, preload, function registry, and invocation bridge.
 
-For a new project, use the [initializer guide](initialization.md). The scaffold targets Solid 2; its JSX runtime is `@solidjs/web`, and its Vite plugin order is `valence()`, Solid, then Tailwind. Existing Solid 1 applications and examples should retain their current framework setup.
+For a new project, use the [initializer guide](initialization.md). The scaffold and repository example target Solid 2; their JSX runtime is `@solidjs/web`, and their Vite plugin order is `valence()`, Solid, then Tailwind. Existing consumer applications should retain their current framework setup unless a migration is requested.
 
 Do not manually write or wire `preload.ts`, `ipcMain.handle`, `ipcRenderer.invoke`, `contextBridge`, a registry, or a second bridge. Do not import generated virtual modules. Runtime helpers other than `getMainContext()` are implementation/advanced APIs and are not part of ordinary application setup. A type-only `AuthorizationContext` import from `valence/runtime/main` can type a policy module. Work with the app's existing framework through Vite.
 

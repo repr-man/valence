@@ -1,5 +1,5 @@
 import type { Component } from 'solid-js';
-import { HashRouter, Route } from '@solidjs/router';
+import { createRouter, hashHistory } from '@solidjs/router';
 
 const routes = Object.entries(import.meta.glob<{ default: Component }>('./routes/**/*.tsx', { eager: true }))
   .map(([file, module]) => ({
@@ -7,8 +7,14 @@ const routes = Object.entries(import.meta.glob<{ default: Component }>('./routes
     component: module.default,
   }));
 
+const Router = createRouter({
+  history: hashHistory(),
+  routes: [
+    ...routes,
+    { path: '*404', component: () => <main class="min-h-screen bg-[#f5f5f8] p-10 text-[#211f30]"><a class="text-[#7c6aa4] underline" href="#/">Back to the example</a><h1 class="mt-6 text-3xl font-semibold">Page not found</h1></main> },
+  ],
+});
+
 export default function App() {
-  return <HashRouter>{routes.map(({ path, component }) => <Route path={path} component={component} />)}
-    <Route path="*" component={() => <main class="min-h-screen bg-[#f5f5f8] p-10 text-[#211f30]"><a class="text-[#7c6aa4] underline" href="#/">Back to the example</a><h1 class="mt-6 text-3xl font-semibold">Page not found</h1></main>} />
-  </HashRouter>;
+  return <Router />;
 }
